@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %> | myShop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(37,211,102,0.06);
+        }
+        .brand {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.7rem;
+            color: #25D366;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 2px 8px rgba(37,211,102,0.08);
+        }
+        .banner-section {
+            background: linear-gradient(120deg, #f8fafc 0%, #e2fbe5 100%);
+            border-radius: 2.5rem;
+            box-shadow: 0 8px 32px rgba(37,211,102,0.10);
+            padding: 3.5rem 2rem 2.5rem 2rem;
+            margin-top: 2.5rem;
+            margin-bottom: 2.5rem;
+            animation: fadeIn 1.2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: none;}
+        }
+        .banner-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #222;
+            letter-spacing: 1px;
+        }
+        .banner-subtitle {
+            color: #444;
+            font-size: 1.25rem;
+            margin-bottom: 2.2rem;
+        }
+        .cta-btn {
+            min-width: 170px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            font-size: 1.15rem;
+            border-radius: 2rem;
+            box-shadow: 0 2px 8px rgba(37,211,102,0.08);
+            transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        }
+        .cta-btn-primary {
+            background: #25D366;
+            color: #fff;
+            border: none;
+        }
+        .cta-btn-primary:hover {
+            background: #128c4b;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(37,211,102,0.18);
+        }
+        .cta-btn-outline {
+            background: #fff;
+            color: #25D366;
+            border: 2px solid #25D366;
+        }
+        .cta-btn-outline:hover {
+            background: #e6f9ed;
+            color: #128c4b;
+            border-color: #128c4b;
+        }
+        .features-section {
+            margin-top: 3.5rem;
+            margin-bottom: 3.5rem;
+        }
+        .feature-card {
+            background: #fff;
+            border-radius: 1.2rem;
+            box-shadow: 0 4px 18px rgba(37,211,102,0.07);
+            padding: 2.2rem 1.5rem 1.7rem 1.5rem;
+            text-align: center;
+            height: 100%;
+            transition: transform 0.18s, box-shadow 0.18s;
+            border: 1.5px solid #e2e8f0;
+        }
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.035);
+            box-shadow: 0 8px 32px rgba(37,211,102,0.13);
+            border-color: #25D36633;
+        }
+        .feature-icon {
+            font-size: 2.7rem;
+            color: #25D366;
+            margin-bottom: 1.1rem;
+        }
+        .feature-title {
+            font-size: 1.22rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #222;
+        }
+        .feature-desc {
+            color: #555;
+            font-size: 1.04rem;
+        }
+        .cta-section {
+            background: linear-gradient(120deg, #25D366 60%, #43e97b 100%);
+            border-radius: 1.5rem;
+            color: #fff;
+            padding: 2.7rem 1.5rem 2.2rem 1.5rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 18px rgba(37,211,102,0.10);
+        }
+        .cta-section .cta-btn {
+            background: #fff;
+            color: #25D366;
+            border: none;
+            margin-top: 1.2rem;
+        }
+        .cta-section .cta-btn:hover {
+            background: #e6f9ed;
+            color: #128c4b;
+        }
+        .testimonials-section {
+            margin-bottom: 3.5rem;
+        }
+        .testimonial-card {
+            background: #fff;
+            border-radius: 1rem;
+            box-shadow: 0 2px 12px rgba(37,211,102,0.07);
+            padding: 1.5rem 1.2rem;
+            font-size: 1.05rem;
+            color: #444;
+            border-left: 4px solid #25D366;
+        }
+        .testimonial-author {
+            font-weight: 600;
+            color: #25D366;
+            margin-top: 0.7rem;
+            font-size: 1rem;
+        }
+        .about-section {
+            margin-bottom: 3.5rem;
+        }
+        @media (max-width: 992px) {
+            .banner-section {
+                padding: 2.5rem 1rem 2rem 1rem;
+            }
+            .features-section {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .banner-section, .features-section, .cta-section, .testimonials-section, .about-section {
+                padding: 1.2rem 0.5rem;
+            }
+            .banner-title {
+                font-size: 1.3rem;
+            }
+            .brand {
+                font-size: 2rem;
+            }
+            .feature-card {
+                padding: 1.2rem 0.7rem 1rem 0.7rem;
+            }
+            .cta-btn, .cta-btn-primary, .cta-btn-outline {
+                min-width: 120px;
+                font-size: 1rem;
+                padding: 0.6rem 1.2rem;
+            }
+        }
+        @media (max-width: 576px) {
+            .banner-section {
+                padding: 1.2rem 0.2rem;
+                border-radius: 1rem;
+            }
+            .feature-card {
+                border-radius: 0.7rem;
+            }
+            .cta-section {
+                border-radius: 0.7rem;
+                padding: 1.2rem 0.5rem;
+            }
+            .about-section {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand brand" href="/">myShop</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                <div class="d-flex flex-column flex-md-row gap-2 mt-3 mt-md-0">
+                    <a href="/login" class="btn btn-outline-success cta-btn cta-btn-outline w-100 w-md-auto">Login</a>
+                    <a href="/signup" class="btn btn-success cta-btn cta-btn-primary w-100 w-md-auto">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner/Hero Section -->
+    <div class="container">
+        <section class="banner-section text-center mx-auto" style="background: linear-gradient(120deg, #f8fafc 0%, #e2fbe5 100%); border-radius: 2.5rem; box-shadow: 0 8px 32px rgba(37,211,102,0.10); padding: 3.5rem 2rem 2.5rem 2rem; margin-top: 2.5rem; margin-bottom: 2.5rem;">
+          <div class="row align-items-center flex-column-reverse flex-lg-row">
+            <div class="col-12 col-lg-6 text-center text-lg-start">
+              <div class="brand mb-3" style="font-size:2.8rem; color:#128c4b; letter-spacing:2px;">myShop</div>
+              <h1 class="fw-bold mb-3" style="font-size:2.7rem; line-height:1.15; color:#1a2e22;">
+                Your Shop. <span style="color:#25D366;">Online</span>.<br>
+                <span style="font-weight:400; color:#444;">In Minutes.</span>
+              </h1>
+              <p class="lead mb-4" style="color:#444; font-size:1.25rem;">
+                Create a stunning shop website, share your link, and get orders directly on WhatsApp.<br>
+                <span style="color:#25D366;">No code. No fees. No hassle.</span>
+              </p>
+              <div class="d-flex flex-column flex-sm-row justify-content-center justify-content-lg-start gap-3">
+                <a href="/signup" class="btn cta-btn cta-btn-primary btn-lg px-4 shadow-sm" style="font-size:1.18rem;">Get Started Free</a>
+                <a href="/login" class="btn cta-btn cta-btn-outline btn-lg px-4 shadow-sm" style="font-size:1.18rem;">Login</a>
+              </div>
+              <!-- <div class="mt-4 d-flex align-items-center gap-2 justify-content-center justify-content-lg-start" style="font-size:1.05rem; color:#128c4b;">
+                <svg width="22" height="22" fill="#25D366" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm-1 15l-5-5 1.414-1.414L11 13.172l5.586-5.586L18 9l-7 7z"/></svg>
+                Trusted by 500+ shop owners
+              </div> -->
+            </div>
+            <div class="col-12 col-lg-6 text-center mb-4 mb-lg-0 d-flex justify-content-center align-items-center">
+              <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" id="Online-Shop-Laptop-1--Streamline-Free-Illustrations"
+    height="100%" width="100%"
+    style="max-height:340px; width:100%; object-fit:contain; display:block; margin:auto;">
+    <desc>
+      Online Shop Laptop 1 Streamline Illustration: https://streamlinehq.com
+    </desc>
+    <g>
+      <path d="M40 219.276a160 160 0 1 0 320 0 160 160 0 1 0 -320 0Z" fill="#e8f4fa" stroke="#daedf7" stroke-width="4"></path>
+      <path d="m227.108 20.724 0 20.8a3.2 3.2 0 0 1 -3.2 3.2l-53.836 0a3.2 3.2 0 0 1 -3.2 -3.2l0 -20.8" fill="#009fd9" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m304.4 186.8 -210.088 0a8 8 0 0 0 -8 8l0 135.528 226.088 0 0 -135.528a8 8 0 0 0 -8 -8Z" fill="#ffffff" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m296.452 202.748 -193.956 0 -0.224 127.58 194.18 0 0 -127.58z" fill="#80ddff" stroke-width="1"></path>
+      <path d="M248.352 202.748 111.36 330.328l-9.088 0 0.224 -127.58 145.856 0z" fill="#b8ecff" stroke-width="1"></path>
+      <path d="m296.452 202.748 -193.956 0 -0.224 127.58 194.18 0 0 -127.58z" fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="M77.004 362.248a127.68 7.98 0 1 0 255.36 0 127.68 7.98 0 1 0 -255.36 0Z" fill="#45413c" opacity=".15" stroke-width="1"></path>
+      <path d="m332.364 346.288 -266 0 0 -11.96a4 4 0 0 1 4 -4l258 0a4 4 0 0 1 4 4Z" fill="#f0f0f0" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="M332.364 346.292a276.652 276.652 0 0 1 -75.964 10.636l-114.068 0a276.628 276.628 0 0 1 -75.968 -10.636l266 0Z" fill="#bdbec0" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="M244.076 132.484a17.512 17.512 0 0 0 -17.496 -17.492l-57.092 0A17.512 17.512 0 0 0 152 132.484l0 44.22 15.2 0 0 -44.22a4.328 4.328 0 0 1 4.272 -4.268l53.108 0a4.324 4.324 0 0 1 4.268 4.268l0 44.22 15.228 0Z" fill="#bf8256" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m268.548 318.172 -138.368 0a4.96 4.96 0 0 1 -4.952 -5.2l7.4 -147.792a4 4 0 0 1 3.948 -3.748l127.424 0a4 4 0 0 1 3.952 3.816l5.548 147.788a4.96 4.96 0 0 1 -4.952 5.136Z" fill="#f0d5a8" stroke-width="1"></path>
+      <path d="m268.556 181.26 -0.6 -16a4 4 0 0 0 -3.956 -3.836l-127.424 0a4 4 0 0 0 -3.948 3.748l-0.8 16.088Z" fill="#f7e5c6" stroke-width="1"></path>
+      <path d="m268.548 318.172 -138.368 0a4.96 4.96 0 0 1 -4.952 -5.2l7.4 -147.792a4 4 0 0 1 3.948 -3.748l127.424 0a4 4 0 0 1 3.952 3.816l5.548 147.788a4.96 4.96 0 0 1 -4.952 5.136Z" fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m170.768 44.732 0 8.468a3.2 3.2 0 0 0 3.2 3.2l46.064 0a3.2 3.2 0 0 0 3.2 -3.2l0 -8.468Z" fill="#ffffff" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m229.024 131.516 0 -5.684 6.256 0a19.468 19.468 0 0 1 7.648 1.556 13.776 13.776 0 0 0 0.104 -1.68l0 -17.976c0 -35.368 -23.716 -28.928 -23.716 -51.32l-44.688 0 0 10.688c0 11.444 -7.772 14.952 -7.772 34.972l0 32.056a7.772 7.772 0 0 0 15.544 0l0 3.872a7.772 7.772 0 0 0 15.544 0l0 3.888a7.772 7.772 0 1 0 15.544 0l0 2.428a7.772 7.772 0 1 0 15.54 0l0 -12.8Z" fill="#ffcebf" stroke-width="1"></path>
+      <path d="m219.316 56.4 -44.688 0 0 10.688c0 6.672 -2.64 10.648 -4.844 16.772a82.68 82.68 0 0 1 70.844 7.268C234.596 73.784 219.316 74.4 219.316 56.4Z" fill="#ffb59e" stroke-width="1"></path>
+      <path d="m229.024 131.516 0 -5.684 6.256 0a19.468 19.468 0 0 1 7.648 1.556 13.776 13.776 0 0 0 0.104 -1.68l0 -17.976c0 -35.368 -23.716 -28.928 -23.716 -51.32l-44.688 0 0 10.688c0 11.444 -7.772 14.952 -7.772 34.972l0 32.056a7.772 7.772 0 0 0 15.544 0l0 3.872a7.772 7.772 0 0 0 15.544 0l0 3.888a7.772 7.772 0 1 0 15.544 0l0 2.428a7.772 7.772 0 1 0 15.54 0l0 -12.8Z" fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m229.06 108.84 -0.016 25.604" fill="none" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m197.944 129.596 0 8.416" fill="#ffcebf" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m213.488 130.24 0 11.66" fill="#ffcebf" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m182.4 129.596 0 4.532" fill="#ffcebf" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="M165.364 225.692a6 6 0 1 0 12 0 6 6 0 1 0 -12 0Z" fill="#45413c" stroke-width="1"></path>
+      <path d="M221.364 225.692a6 6 0 1 0 12 0 6 6 0 1 0 -12 0Z" fill="#45413c" stroke-width="1"></path>
+      <path d="M173.4 249.6c14.34 20.772 37.6 20.772 51.928 0Z" fill="#ff866e" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+      <path d="m229.064 161.424 15.012 0 0 -28.94a17.472 17.472 0 0 0 -15.02 -17.244l0 17.152 0 0.092Z" fill="#bf8256" stroke="#45413c" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+    </g>
+  </svg>
+            </div>
+          </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <div class="row g-4 justify-content-center">
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">⚡</div>
+                        <div class="feature-title">Launch in Minutes</div>
+                        <div class="feature-desc">Create your shop website and start selling in minutes. No technical skills required.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">🛒</div>
+                        <div class="feature-title">Go Online Instantly</div>
+                        <div class="feature-desc">Make your shop accessible 24/7. Share your unique shop link with customers anywhere.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">💬</div>
+                        <div class="feature-title">WhatsApp Orders</div>
+                        <div class="feature-desc">Receive orders directly on WhatsApp. Chat, confirm, and deliver with ease.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">🧩</div>
+                        <div class="feature-title">No Code, No Fuss</div>
+                        <div class="feature-desc">No coding or design skills needed. Our platform is built for everyone—just fill in your details and go live.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">👌</div>
+                        <div class="feature-title">Easy to Use</div>
+                        <div class="feature-desc">Simple, intuitive dashboard. Add products, manage your shop, and track orders effortlessly.</div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-lg-4">
+                    <div class="feature-card h-100">
+                        <div class="feature-icon">🔗</div>
+                        <div class="feature-title">Share & Grow</div>
+                        <div class="feature-desc">Share your shop link on social media, WhatsApp, or anywhere. Grow your business online with zero barriers.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="testimonial-card mx-auto">
+                        <div>
+                            <span style="font-size:1.5rem;">“</span>
+                            myShop made it so easy to take my business online. I set up my shop in minutes and started getting orders on WhatsApp the same day!
+                        </div>
+                        <div class="testimonial-author">— A Happy Shop Owner</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section mx-auto">
+            <h3 class="fw-bold mb-3">Ready to make your shop online?</h3>
+            <p class="mb-3" style="font-size:1.1rem;">Join hundreds of shop owners who trust <span style="font-family:'Dancing Script',cursive;">myShop</span> to grow their business.</p>
+            <a href="/signup" class="btn btn-light btn-lg px-4 cta-btn">Start Free Now</a>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section text-center mb-5">
+            <h2 class="fw-bold mb-3" style="color:#25D366;">Why myShop?</h2>
+            <p style="font-size:1.15rem; color:#444; max-width:600px; margin:auto;">
+                myShop empowers anyone to launch an online shop in minutes, manage products easily, and receive orders directly on WhatsApp. No coding, no fees—just simple, effective selling for everyone!
+            </p>
+        </section>
+    </div>
+
+    <footer class="text-center py-3 text-muted small" style="background: #f8fafc; border-top: 1px solid #e2e8f0;">
+        &copy; <%= new Date().getFullYear() %> <span style="color:#25D366;font-family:'Dancing Script',cursive;">myShop</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

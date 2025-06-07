@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <title> <%=title %></title>
+</head>
+<body>
+    <%- include('header') %>
+<div class="container py-5">
+  <div class="mx-auto" style="max-width: 600px;">
+    <div class="bg-white rounded-4 shadow-sm p-4 mb-4">
+      <h2 class="mb-3" style="font-family: 'Dancing Script', cursive; color: #25D366;">Contact Us</h2>
+      <p class="mb-4" style="color:#444;">
+        Have questions, feedback, or need help? We'd love to hear from you!
+      </p>
+      <form action="/contact" method="POST">
+        <div class="mb-3">
+          <label for="contactName" class="form-label">Your Name</label>
+          <input type="text" class="form-control" id="contactName" placeholder="Enter your name" required>
+        </div>
+        <div class="mb-3">
+          <label for="contactEmail" class="form-label">Your Email</label>
+          <input type="email" class="form-control" id="contactEmail" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+          <label for="contactMessage" class="form-label">Message</label>
+          <textarea class="form-control" id="contactMessage" rows="4" placeholder="Type your message here..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success px-4">Send Message</button>
+      </form>
+      <div class="mt-4 text-muted small">
+        Or email us directly at <a href="mailto:support@myshop.com" style="color:#25D366;">support@myshop.com</a>
+      </div>
+    </div>
+    
+  </div>
+</div>
+<%- include('footer') %>
+</body>
+</html>

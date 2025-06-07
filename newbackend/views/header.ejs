@@ -1,0 +1,70 @@
+<nav class="navbar navbar-expand-lg" style="background: #ffffff; border-bottom: 1px solid #e2e8f0;">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <span style="font-family: 'Dancing Script', cursive; font-size: 2rem; font-weight: bold; letter-spacing: 1px; color: #25D366;">
+        myShop
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNavbar">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item">
+          <a class="nav-link px-3<%= (active === 'dashboard' ? ' active' : '') %>" href="/dashboard" style="transition: color 0.2s;">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3<%= (active === 'about' ? ' active' : '') %>" href="/about" style="transition: color 0.2s;">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3<%= (active === 'contact' ? ' active' : '') %>" href="/contact" style="transition: color 0.2s;">Contact</a>
+        </li>
+        <li class="nav-item ms-lg-3">
+          <a href="/myshop/<%=siteName%>" target="_blank" rel="noopener"
+             class="btn btn-outline-success align-items-center me-lg-3 d-flex">
+            View Shop
+          </a>
+        </li>
+        <li class="nav-item ms-lg-0">
+          <a href="/account" class="nav-link p-0 account-link<%= (active === 'account' ? ' active-account' : '') %>">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" class="account-svg">
+              <circle cx="12" cy="12" r="10" stroke="#25D366" stroke-width="2"/>
+              <path d="M16 9.5C16 11.7091 14.2091 13.5 12 13.5C9.79086 13.5 8 11.7091 8 9.5C8 7.29086 9.79086 5.5 12 5.5C14.2091 5.5 16 7.29086 16 9.5Z" stroke="#25D366" stroke-width="2"/>
+              <path d="M5.3163 19.4384C5.92462 18.0052 7.34492 17 9 17H15C16.6551 17 18.0754 18.0052 18.6837 19.4384" stroke="#25D366" stroke-width="2"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <style>
+    .navbar-nav .nav-link {
+      color: #222;
+      font-weight: 500;
+      border-radius: 0.5rem;
+    }
+    .navbar-nav .nav-link.active,
+    .navbar-nav .nav-link:hover {
+      color: #fff !important;
+      background: #25D366;
+    }
+    .navbar {
+      box-shadow: 0 2px 8px rgba(37,211,102,0.04);
+    }
+    /* Account SVG hover effect */
+    .account-link .account-svg {
+      transition: background 0.2s, stroke 0.2s;
+      border-radius: 50%;
+    }
+    .account-link.active-account .account-svg,
+    .account-link:hover .account-svg {
+      background: #25D36622;
+    }
+    .account-link.active-account .account-svg circle,
+    .account-link.active-account .account-svg path,
+    .account-link:hover .account-svg circle,
+    .account-link:hover .account-svg path {
+      stroke: #128c4b;
+    }
+  </style>
+</nav>
