@@ -113,7 +113,7 @@ app.post("/signup", async (req, res, next) => {
     });
   } catch (error) {
     console.error("Error creating user:", error);
-    return res.send("Error creating user");
+    return res.send(error);
   }
 });
 
