@@ -20,7 +20,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         unique: true
       },
-      logo: {
+      shopName: {
         type: Sequelize.STRING
       },
       email: {
