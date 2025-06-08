@@ -18,12 +18,24 @@
         }
 
         .signup-card {
+            width: 100%;
             max-width: 400px;
             margin: auto;
             border-radius: 1.2rem;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10);
             background: #fff;
             padding: 2rem 2rem 1.5rem 2rem;
+        }
+
+        @media (max-width: 576px) {
+            .signup-card {
+                padding: 1.2rem 0.7rem 1rem 0.7rem;
+                max-width: 98vw;
+            }
+
+            body {
+                padding: 0.5rem;
+            }
         }
 
         .form-label {
@@ -42,44 +54,56 @@
 </head>
 
 <body>
-    <div class="signup-card mt-5 mb-5">
-        <h2 class="mb-4 text-center fw-bold" style="letter-spacing:1px;">Sign Up</h2>
-        <form action="/signup" method="POST">
-            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-            <div class="mb-3">
-                <label for="inputName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="inputName" name="name" required placeholder="Your Name">
+    <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+        <div class="signup-card mt-4 mb-4 w-100">
+            <h2 class="mb-4 text-center fw-bold" style="letter-spacing:1px;">Sign Up</h2>
+            <form action="/signup" method="POST">
+                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                <div class="mb-3">
+                    <label for="inputName" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="inputName" name="name" required placeholder="Your Name">
+                </div>
+                <div class="mb-3">
+                    <label for="inputShopName" class="form-label">Shop Name</label>
+                    <input type="text" class="form-control" id="inputShopName" name="shopName" required
+                        placeholder="eg: ABC Store">
+                </div>
+                <div class="mb-3">
+                    <label for="inputSiteName" class="form-label">Site Name</label>
+                    <input type="text" class="form-control" id="inputSiteName" name="siteName" required
+                        placeholder="eg: abcstore">
+                </div>
+                <div class="mb-3">
+                    <label for="inputNumber" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="inputNumber" name="number"
+                        placeholder="WhatsApp number"
+                        required
+                        pattern="[0-9]{10}"
+                        maxlength="10"
+                        minlength="10"
+                        inputmode="numeric"
+                        title="Please enter a 10-digit phone number">
+                </div>
+                <div class="mb-3">
+                    <label for="inputEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="inputEmail" name="email" required
+                        placeholder="example@gmail.com">
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="inputPassword" name="password" required
+                        placeholder="Password">
+                </div>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                    <label class="form-check-label" for="termsCheck">Agree to terms and conditions</label>
+                </div>
+                <button type="submit" class="btn btn-success w-100">Create Account</button>
+            </form>
+            <div class="text-center mt-3">
+                <span class="text-muted">Already have an account?</span>
+                <a href="/login" class="text-decoration-none ms-1">Login</a>
             </div>
-            <div class="mb-3">
-                <label for="inputSiteName" class="form-label">Site Name</label>
-                <input type="text" class="form-control" id="inputSiteName" name="siteName" required placeholder="eg: abcstore">
-            </div>
-            <div class="mb-3">
-                <label for="inputNumber" class="form-label">Phone Number</label>
-                <input type="tel" class="form-control" id="inputNumber" name="number" placeholder="WhatsApp number"
-                    required>
-            </div>
-           <div class="mb-3">
-    <label for="inputShopName" class="form-label">Shop Name</label>
-    <input type="text" class="form-control" id="inputShopName" name="shopName" required placeholder="Your Shop Name">
-</div>
-            <div class="mb-3">
-                <label for="inputEmail" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="inputEmail" name="email" required placeholder="example@gmail.com">
-            </div>
-            <div class="mb-3">
-                <label for="inputPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="inputPassword" name="password" required placeholder="Password">
-            </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="termsCheck" required>
-                <label class="form-check-label" for="termsCheck">Agree to terms and conditions</label>
-            </div>
-            <button type="submit" class="btn btn-success w-100">Create Account</button>
-        </form>
-        <div class="text-center mt-3">
-            <span class="text-muted">Already have an account?</span>
-            <a href="/login" class="text-decoration-none ms-1">Login</a>
         </div>
     </div>
 </body>
