@@ -21,7 +21,10 @@ module.exports = {
     use_env_variable: "DATABASE_URI",
     dialect: "postgres",
     dialectOptions: {
-      ssl: true
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
     }
   }
 };
