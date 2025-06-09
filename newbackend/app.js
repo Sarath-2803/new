@@ -1,3 +1,9 @@
+require("dotenv").config();
+const { neon } = require("@neondatabase/serverless");
+
+// Create a Neon SQL client using your DATABASE_URL from .env
+const sql = neon(process.env.DATABASE_URL);
+
 const express = require("express");
 
 const app = express();
@@ -314,5 +320,6 @@ app.post("/contact", async (req, res) => {
     });
   }
 });
+
 
 module.exports = app;
