@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+console.log('Connecting to:', process.env.DATABASE_URI);
+
 module.exports = {
   development: {
     username: "postgres",
