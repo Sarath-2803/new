@@ -101,6 +101,8 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+
 //Routes
 app.get("/", (req, res) => {
   res.render("index", { title: "myShop" });
@@ -156,7 +158,7 @@ app.get("/logout", ensureLoggedIn('/login'), (req, res) => {
 }
 );
 
-const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
+
 
 app.get("/dashboard", ensureLoggedIn('/login'), async (req, res) => {
   var itemData = await Item.getAllItem(req.user.id); // Fetch items for the logged-in user
