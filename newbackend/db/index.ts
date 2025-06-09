@@ -9,7 +9,7 @@ const config = {
     password: process.env.PG_PASSWORD,
     host: "myshop-pg-db-myshop-proj.f.aivencloud.com",
     port: 14640,
-    database: "defaultdb",
+    database: "myshop-db",
     ssl: {
         rejectUnauthorized: true,
         ca: `-----BEGIN CERTIFICATE-----
