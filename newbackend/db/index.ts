@@ -11,7 +11,7 @@ const config = {
     port: 14640,
     database: "myshop-db",
     ssl: {
-        rejectUnauthorized: true,
+        rejectUnauthorized: false,
         ca: `-----BEGIN CERTIFICATE-----
 MIIEUDCCArigAwIBAgIUPGD44bVrN9QKAmqjCSPTtmQCRGMwDQYJKoZIhvcNAQEM
 BQAwQDE+MDwGA1UEAww1MjM1OGEzODYtMmUxZC00MDFiLWI3NjYtNzYyYzg0YWVj
