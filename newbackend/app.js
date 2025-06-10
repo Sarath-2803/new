@@ -275,7 +275,7 @@ app.get("/myshop/:siteName", async (req, res) => {
     }
     // Fetch items for this user
     const data = await Item.getAllItem(user.id);
-    res.render("template", { title: "Template", data: data, shopName: user.shopName, number: user.number });
+    res.render("template", { title: user.shopName, data: data, shopName: user.shopName, number: user.number });
   } catch (error) {
     console.error("Error loading template:", error);
     res.send("Error loading site!");
